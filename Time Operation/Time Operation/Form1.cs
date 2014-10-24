@@ -59,19 +59,7 @@ namespace Time_Operation
                 txtMin1.Text = txtMin2.Text = txtMin3.Text
                     = txtMin.Text = date.ToString("mm");
             }
-            //foreach (GroupBox gb in this.Controls.OfType<GroupBox>())
-            //{
-            //    foreach (TextBox tb in gb.Controls.OfType<TextBox>())
-            //    {
-            //        tb.TextChanged += tb_TextChanged;
-            //    }
-            //}
         }
-
-        //void tb_TextChanged(object sender, EventArgs e)
-        //{
-            
-        //}
 
         private void btnStart1_Click(object sender, EventArgs e)
         {
