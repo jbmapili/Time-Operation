@@ -1,0 +1,10 @@
+C:\Users\pc\Desktop\Currently Creating\Time Operation\Time Operation\bin\Debug\Time Operation.exe.config
+C:\Users\pc\Desktop\Currently Creating\Time Operation\Time Operation\bin\Debug\Time Operation.exe
+C:\Users\pc\Desktop\Currently Creating\Time Operation\Time Operation\bin\Debug\Time Operation.pdb
+C:\Users\pc\Desktop\Currently Creating\Time Operation\Time Operation\obj\Debug\Time Operation.csprojResolveAssemblyReference.cache
+C:\Users\pc\Desktop\Currently Creating\Time Operation\Time Operation\obj\Debug\Time_Operation.Form1.resources
+C:\Users\pc\Desktop\Currently Creating\Time Operation\Time Operation\obj\Debug\Time_Operation.Properties.Resources.resources
+C:\Users\pc\Desktop\Currently Creating\Time Operation\Time Operation\obj\Debug\Time Operation.csproj.GenerateResource.Cache
+C:\Users\pc\Desktop\Currently Creating\Time Operation\Time Operation\obj\Debug\Time Operation.exe
+C:\Users\pc\Desktop\Currently Creating\Time Operation\Time Operation\obj\Debug\Time Operation.pdb
+C:\Users\pc\Desktop\Currently Creating\Time Operation\Time Operation\bin\Debug\DxpSimpleAPI.dll
