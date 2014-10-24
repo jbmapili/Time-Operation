@@ -64,7 +64,7 @@ namespace Time_Operation
 
         void tb_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = !char.IsDigit(e.KeyChar);
+            e.Handled = !char.IsDigit(e.KeyChar) && !(char.IsControl(e.KeyChar));
         }
 
         private void btnStart1_Click(object sender, EventArgs e)
@@ -421,6 +421,11 @@ namespace Time_Operation
                     Debug.WriteLine("Set Writing Succeed in WriteTimeValues()");
                 }
             }
+        }
+
+        private void txtYear_Leave(object sender, EventArgs e)
+        {
+
         }
     }
 }
