@@ -1,7 +1,21 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)">
-  <Profiles>
-    <Profile Name="(Default)" />
-  </Profiles>
-  <Settings />
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Time_Operation.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="DeviceName" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">DEV1.</Value>
+    </Setting>
+    <Setting Name="BitPrefix" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">B</Value>
+    </Setting>
+    <Setting Name="WordPrefix" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">W</Value>
+    </Setting>
+    <Setting Name="No1SWAddr" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">10B2</Value>
+    </Setting>
+    <Setting Name="RemoteFlag" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">180F</Value>
+    </Setting>
+  </Settings>
 </SettingsFile>
