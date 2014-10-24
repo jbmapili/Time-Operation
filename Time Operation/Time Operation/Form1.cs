@@ -28,6 +28,7 @@ namespace Time_Operation
 
         DxpSimpleAPI.DxpSimpleClass opc = new DxpSimpleAPI.DxpSimpleClass();
         DateTime date = DateTime.Now;
+        DateTime dt;
         public Form1()
         {
             InitializeComponent();
@@ -71,7 +72,7 @@ namespace Time_Operation
             DateTime d1=new DateTime(Convert.ToInt32(txtYear1.Text), Convert.ToInt32(txtMonth1.Text), 
                                      Convert.ToInt32(txtDay1.Text), Convert.ToInt32(txtHour1.Text), 
                                      Convert.ToInt32(txtMin1.Text), 59);
-            if (d1 > date)
+            if (d1 > dt)
             {
                 string[] targets = new string[] { DeviceName + BitPrefix + RemoteFlag, };
                 object[] values;
@@ -100,7 +101,7 @@ namespace Time_Operation
 
         private void timer5_Tick(object sender, EventArgs e)
         {
-            DateTime dt = DateTime.Now;
+            dt = DateTime.Now;
             lblDate.Text = dt.ToString("MM/dd/yyyy");
             lblTime.Text = dt.ToString("HH:mm:ss");
         }
@@ -164,7 +165,7 @@ namespace Time_Operation
             DateTime d1=new DateTime(Convert.ToInt32(txtYear3.Text), Convert.ToInt32(txtMonth3.Text), 
                                      Convert.ToInt32(txtDay3.Text), Convert.ToInt32(txtHour3.Text), 
                                      Convert.ToInt32(txtMin3.Text), 59);
-            if (d1 > date)
+            if (d1 > dt)
             {
             string[] targets = new string[] { DeviceName + BitPrefix + RemoteFlag, };
             object[] values;
@@ -263,7 +264,7 @@ namespace Time_Operation
             DateTime d1=new DateTime(Convert.ToInt32(txtYear2.Text), Convert.ToInt32(txtMonth2.Text), 
                                      Convert.ToInt32(txtDay2.Text), Convert.ToInt32(txtHour2.Text), 
                                      Convert.ToInt32(txtMin2.Text), 59);
-            if (d1 > date)
+            if (d1 > dt)
             {
             string[] targets = new string[] { DeviceName + BitPrefix + RemoteFlag, };
             object[] values;
@@ -345,7 +346,7 @@ namespace Time_Operation
             DateTime d1=new DateTime(Convert.ToInt32(txtYear.Text), Convert.ToInt32(txtMonth.Text), 
                                      Convert.ToInt32(txtDay.Text), Convert.ToInt32(txtHour.Text), 
                                      Convert.ToInt32(txtMin.Text), 59);
-            if (d1 > date)
+            if (d1 > dt)
             {
             string[] targets = new string[] { DeviceName + BitPrefix + RemoteFlag, };
             object[] values;
