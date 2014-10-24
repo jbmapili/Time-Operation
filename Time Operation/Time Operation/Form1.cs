@@ -21,6 +21,9 @@ namespace Time_Operation
         string No1SWAddr = Properties.Settings.Default.No1SWAddr;
         string RemoteFlag = Properties.Settings.Default.RemoteFlag;
         bool No1flag = false;
+        bool No2flag = false;
+        bool No3flag = false;
+        bool No4flag = false;
 
 
         DxpSimpleAPI.DxpSimpleClass opc = new DxpSimpleAPI.DxpSimpleClass();
@@ -43,34 +46,32 @@ namespace Time_Operation
 
         private void Form1_Load(object sender, EventArgs e)
         {
-        //    foreach (GroupBox gb in this.Controls.OfType<GroupBox>())
-        //    {
-        //        foreach (TextBox tb in gb.Controls.OfType<TextBox>())
-        //        {
-        //            if (tb.Text.ToString() == "Year") { tb.Text = date.ToString("yyyy"); }
-        //        }
-        //    }
             if (opc.Connect("localhost", "Takebishi.dxp"))
             {
                 txtYear1.Text = txtYear2.Text = txtYear3.Text 
                     = txtYear.Text = date.ToString("yyyy");
                 txtMonth1.Text = txtMonth3.Text = txtMonth2.Text 
                     = txtMonth.Text = date.ToString("MM");
-                txtDay1.Text = date.ToString("dd");
-                txtDay2.Text = date.ToString("dd");
-                txtDay3.Text = date.ToString("dd");
-                txtDay.Text = date.ToString("dd");
-                txtHour1.Text = date.ToString("HH");
-                txtHour2.Text = date.ToString("HH");
-                txtHour3.Text = date.ToString("HH");
-                txtHour.Text = date.ToString("HH");
-                txtMin1.Text = date.ToString("mm");
-                txtMin2.Text = date.ToString("mm");
-                txtMin3.Text = date.ToString("mm");
-                txtMin.Text = date.ToString("mm");
-//                btnStop1.Enabled = false;
+                txtDay1.Text = txtDay2.Text = txtDay3.Text
+                    = txtDay.Text = date.ToString("dd");
+                txtHour1.Text = txtHour2.Text = txtHour3.Text
+                    = txtHour.Text = date.ToString("HH");
+                txtMin1.Text = txtMin2.Text = txtMin3.Text
+                    = txtMin.Text = date.ToString("mm");
             }
+            //foreach (GroupBox gb in this.Controls.OfType<GroupBox>())
+            //{
+            //    foreach (TextBox tb in gb.Controls.OfType<TextBox>())
+            //    {
+            //        tb.TextChanged += tb_TextChanged;
+            //    }
+            //}
         }
+
+        //void tb_TextChanged(object sender, EventArgs e)
+        //{
+            
+        //}
 
         private void btnStart1_Click(object sender, EventArgs e)
         {
@@ -117,19 +118,9 @@ namespace Time_Operation
                 }
 
                 btnStart1.ForeColor = Color.Gray;
-                btnStop1.ForeColor = Color.Orange; 
-            }
-            //List<string> targetRegs = new List<string>();
-            //List<object> writeVals = new List<object>();
-            //int[] errs;
-            //writeVals.Add("0");
+                btnStop1.ForeColor = Color.Orange;
 
-            //if (opc.Write(targetRegs.ToArray(), writeVals.ToArray(), out errs))
-            //{
-            //    timer1.Enabled = false;
-            //    btnStart1.Enabled = true;
-            //    btnStop1.Enabled = false;
-            //}
+            }
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -149,16 +140,13 @@ namespace Time_Operation
             {
                 No1flag = true;
 
-                string[] targetRegs = new string[] { DeviceName + BitPrefix + No1SWAddr, };
+                string[] targetRegs = new string[] { DeviceName + BitPrefix + No1SWAddr + "0", };
                 object[] writeVals = new object[] { "1" };
                 int[] errs;
 
                 if (opc.Write(targetRegs, writeVals, out errs))
                 {
                     Debug.WriteLine("Set Writing Succeed in WriteTimeValues()");
-                    //timer1.Enabled = true;
-                    //btnStart1.Enabled = false;
-                    //btnStop1.Enabled = true;
                 }
             }
         }
@@ -166,6 +154,239 @@ namespace Time_Operation
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
             opc.Disconnect();
+        }
+
+        private void btnStart3_Click(object sender, EventArgs e)
+        {
+            string[] targets = new string[] { DeviceName + BitPrefix + RemoteFlag, };
+            object[] values;
+            short[] qualities;
+            FILETIME[] fileTimes;
+            int[] errors;
+
+            if (opc.Read(targets, out values, out qualities, out fileTimes, out errors))
+            {
+                if (Convert.ToInt32(values[0]) == 0)
+                {
+                    return;
+                }
+
+                btnStart3.ForeColor = Color.Orange;
+                btnStop3.ForeColor = Color.Gray;
+
+                No3flag = false;
+
+                //string[] targetRegs = new string[] { DeviceName + BitPrefix + "100B", };
+                //object[] writeVals = new object[] { "1" };
+                //int[] errs;
+
+                //if (opc.Write(targetRegs, writeVals, out errs))
+                //{
+                //    Debug.WriteLine("Set Writing Succeed in WriteTimeValues()");
+                //}
+            }
+        }
+
+        private void btnStop3_Click(object sender, EventArgs e)
+        {            
+            string[] targets = new string[] { DeviceName + BitPrefix + RemoteFlag, };
+            object[] values;
+            short[] qualities;
+            FILETIME[] fileTimes;
+            int[] errors;
+
+            if (opc.Read(targets, out values, out qualities, out fileTimes, out errors))
+            {
+                if (Convert.ToInt32(values[0]) == 0)
+                {
+                    return;
+                }
+
+                btnStart3.ForeColor = Color.Gray;
+                btnStop3.ForeColor = Color.Orange;
+
+                //string[] targetRegs = new string[] { DeviceName + BitPrefix + "100B", };
+                //object[] writeVals = new object[] { "0" };
+                //int[] errs;
+
+                //if (opc.Write(targetRegs, writeVals, out errs))
+                //{
+                //    Debug.WriteLine("Set Writing Succeed in WriteTimeValues()");
+                //}
+            }
+        }
+
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            if (btnStart3.ForeColor == Color.Gray)
+            {
+                return;
+            }
+
+            DateTime date = DateTime.Now;
+            if (txtYear3.Text == date.ToString("yyyy") &&
+                txtMonth3.Text == date.ToString("MM") &&
+                txtDay3.Text == date.ToString("dd") &&
+                txtHour3.Text == date.ToString("HH") &&
+                txtMin3.Text == date.ToString("mm") &&
+                No3flag == false)
+            {
+                No3flag = true;
+
+                string[] targetRegs = new string[] { DeviceName + BitPrefix + No1SWAddr + "1", };
+                object[] writeVals = new object[] { "1" };
+                int[] errs;
+
+                if (opc.Write(targetRegs, writeVals, out errs))
+                {
+                    Debug.WriteLine("Set Writing Succeed in WriteTimeValues()");
+                }
+            }
+        }
+
+        private void btnStart2_Click(object sender, EventArgs e)
+        {
+            
+            string[] targets = new string[] { DeviceName + BitPrefix + RemoteFlag, };
+            object[] values;
+            short[] qualities;
+            FILETIME[] fileTimes;
+            int[] errors;
+
+            if (opc.Read(targets, out values, out qualities, out fileTimes, out errors))
+            {
+                if (Convert.ToInt32(values[0]) == 0 )
+                {
+                    return;
+                }
+
+                btnStart2.ForeColor = Color.Orange;
+                btnStop2.ForeColor = Color.Gray;
+
+                No1flag = false;
+            }
+        }
+
+        private void btnStop2_Click(object sender, EventArgs e)
+        {
+            string[] targets = new string[] { DeviceName + BitPrefix + RemoteFlag, };
+            object[] values;
+            short[] qualities;
+            FILETIME[] fileTimes;
+            int[] errors;
+
+            if (opc.Read(targets, out values, out qualities, out fileTimes, out errors))
+            {
+                if (Convert.ToInt32(values[0]) == 0)
+                {
+                    return;
+                }
+
+                btnStart2.ForeColor = Color.Gray;
+                btnStop2.ForeColor = Color.Orange;
+
+            }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (btnStart2.ForeColor == Color.Gray)
+            {
+                return;
+            }
+
+            DateTime date = DateTime.Now;
+            if (txtYear2.Text == date.ToString("yyyy") &&
+                txtMonth2.Text == date.ToString("MM") &&
+                txtDay2.Text == date.ToString("dd") &&
+                txtHour2.Text == date.ToString("HH") &&
+                txtMin2.Text == date.ToString("mm") &&
+                No2flag == false)
+            {
+                No2flag = true;
+
+                string[] targetRegs = new string[] { DeviceName + BitPrefix + No1SWAddr + "2", };
+                object[] writeVals = new object[] { "1" };
+                int[] errs;
+
+                if (opc.Write(targetRegs, writeVals, out errs))
+                {
+                    Debug.WriteLine("Set Writing Succeed in WriteTimeValues()");
+                }
+            }
+        }
+
+        private void btnStart_Click(object sender, EventArgs e)
+        {
+            
+            string[] targets = new string[] { DeviceName + BitPrefix + RemoteFlag, };
+            object[] values;
+            short[] qualities;
+            FILETIME[] fileTimes;
+            int[] errors;
+
+            if (opc.Read(targets, out values, out qualities, out fileTimes, out errors))
+            {
+                if (Convert.ToInt32(values[0]) == 0 )
+                {
+                    return;
+                }
+
+                btnStart.ForeColor = Color.Orange;
+                btnStop.ForeColor = Color.Gray;
+
+                No4flag = false;
+            }
+        }
+
+        private void btnStop_Click(object sender, EventArgs e)
+        {
+            
+            string[] targets = new string[] { DeviceName + BitPrefix + RemoteFlag, };
+            object[] values;
+            short[] qualities;
+            FILETIME[] fileTimes;
+            int[] errors;
+
+            if (opc.Read(targets, out values, out qualities, out fileTimes, out errors))
+            {
+                if (Convert.ToInt32(values[0]) == 0)
+                {
+                    return;
+                }
+
+                btnStart.ForeColor = Color.Gray;
+                btnStop.ForeColor = Color.Orange; 
+            }
+        }
+
+        private void timer4_Tick(object sender, EventArgs e)
+        {
+            
+            if (btnStart.ForeColor == Color.Gray)
+            {
+                return;
+            }
+
+            DateTime date = DateTime.Now;
+            if (txtYear.Text == date.ToString("yyyy") &&
+                txtMonth.Text == date.ToString("MM") &&
+                txtDay.Text == date.ToString("dd") &&
+                txtHour.Text == date.ToString("HH") &&
+                txtMin.Text == date.ToString("mm") &&
+                No4flag == false)
+            {
+                No4flag = true;
+
+                string[] targetRegs = new string[] { DeviceName + BitPrefix + No1SWAddr + "3", };
+                object[] writeVals = new object[] { "1" };
+                int[] errs;
+
+                if (opc.Write(targetRegs, writeVals, out errs))
+                {
+                    Debug.WriteLine("Set Writing Succeed in WriteTimeValues()");
+                }
+            }
         }
     }
 }

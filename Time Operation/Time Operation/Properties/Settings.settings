@@ -12,7 +12,7 @@
       <Value Profile="(Default)">W</Value>
     </Setting>
     <Setting Name="No1SWAddr" Type="System.String" Scope="Application">
-      <Value Profile="(Default)">10B2</Value>
+      <Value Profile="(Default)">10B</Value>
     </Setting>
     <Setting Name="RemoteFlag" Type="System.String" Scope="Application">
       <Value Profile="(Default)">180F</Value>
