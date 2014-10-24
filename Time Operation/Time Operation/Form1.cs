@@ -61,25 +61,40 @@ namespace Time_Operation
             }
         }
 
+        void tb_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar);
+        }
+
         private void btnStart1_Click(object sender, EventArgs e)
         {
-            string[] targets = new string[] { DeviceName + BitPrefix + RemoteFlag, };
-            object[] values;
-            short[] qualities;
-            FILETIME[] fileTimes;
-            int[] errors;
-
-            if (opc.Read(targets, out values, out qualities, out fileTimes, out errors))
+            DateTime d1=new DateTime(Convert.ToInt32(txtYear1.Text), Convert.ToInt32(txtMonth1.Text), 
+                                     Convert.ToInt32(txtDay1.Text), Convert.ToInt32(txtHour1.Text), 
+                                     Convert.ToInt32(txtMin1.Text), 59);
+            if (d1 > date)
             {
-                if (Convert.ToInt32(values[0]) == 0 )
+                string[] targets = new string[] { DeviceName + BitPrefix + RemoteFlag, };
+                object[] values;
+                short[] qualities;
+                FILETIME[] fileTimes;
+                int[] errors;
+
+                if (opc.Read(targets, out values, out qualities, out fileTimes, out errors))
                 {
-                    return;
+                    if (Convert.ToInt32(values[0]) == 0)
+                    {
+                        return;
+                    }
+
+                    btnStart1.ForeColor = Color.Orange;
+                    btnStop1.ForeColor = Color.Gray;
+
+                    No1flag = false;
                 }
-
-                btnStart1.ForeColor = Color.Orange;
-                btnStop1.ForeColor = Color.Gray;
-
-                No1flag = false;
+            }
+            else
+            {
+                MessageBox.Show("Date must be future");
             }
         }
 
@@ -146,6 +161,11 @@ namespace Time_Operation
 
         private void btnStart3_Click(object sender, EventArgs e)
         {
+            DateTime d1=new DateTime(Convert.ToInt32(txtYear3.Text), Convert.ToInt32(txtMonth3.Text), 
+                                     Convert.ToInt32(txtDay3.Text), Convert.ToInt32(txtHour3.Text), 
+                                     Convert.ToInt32(txtMin3.Text), 59);
+            if (d1 > date)
+            {
             string[] targets = new string[] { DeviceName + BitPrefix + RemoteFlag, };
             object[] values;
             short[] qualities;
@@ -172,6 +192,11 @@ namespace Time_Operation
                 //{
                 //    Debug.WriteLine("Set Writing Succeed in WriteTimeValues()");
                 //}
+            }
+            }
+            else
+            {
+                MessageBox.Show("Date must be future");
             }
         }
 
@@ -235,6 +260,11 @@ namespace Time_Operation
         private void btnStart2_Click(object sender, EventArgs e)
         {
             
+            DateTime d1=new DateTime(Convert.ToInt32(txtYear2.Text), Convert.ToInt32(txtMonth2.Text), 
+                                     Convert.ToInt32(txtDay2.Text), Convert.ToInt32(txtHour2.Text), 
+                                     Convert.ToInt32(txtMin2.Text), 59);
+            if (d1 > date)
+            {
             string[] targets = new string[] { DeviceName + BitPrefix + RemoteFlag, };
             object[] values;
             short[] qualities;
@@ -252,6 +282,11 @@ namespace Time_Operation
                 btnStop2.ForeColor = Color.Gray;
 
                 No1flag = false;
+            }
+            }
+            else
+            {
+                MessageBox.Show("Date must be future");
             }
         }
 
@@ -307,6 +342,11 @@ namespace Time_Operation
         private void btnStart_Click(object sender, EventArgs e)
         {
             
+            DateTime d1=new DateTime(Convert.ToInt32(txtYear.Text), Convert.ToInt32(txtMonth.Text), 
+                                     Convert.ToInt32(txtDay.Text), Convert.ToInt32(txtHour.Text), 
+                                     Convert.ToInt32(txtMin.Text), 59);
+            if (d1 > date)
+            {
             string[] targets = new string[] { DeviceName + BitPrefix + RemoteFlag, };
             object[] values;
             short[] qualities;
@@ -324,6 +364,11 @@ namespace Time_Operation
                 btnStop.ForeColor = Color.Gray;
 
                 No4flag = false;
+            }
+            }
+            else
+            {
+                MessageBox.Show("Date must be future");
             }
         }
 

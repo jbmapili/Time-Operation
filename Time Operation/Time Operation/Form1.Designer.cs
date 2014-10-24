@@ -49,7 +49,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label37 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label35 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -116,10 +115,12 @@
             this.lblDate = new System.Windows.Forms.Label();
             this.lblTime = new System.Windows.Forms.Label();
             this.timer5 = new System.Windows.Forms.Timer(this.components);
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -219,6 +220,7 @@
             this.txtMin1.Size = new System.Drawing.Size(38, 19);
             this.txtMin1.TabIndex = 11;
             this.txtMin1.Tag = "Minute";
+            this.txtMin1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
             // 
             // txtHour1
             // 
@@ -227,6 +229,7 @@
             this.txtHour1.Size = new System.Drawing.Size(39, 19);
             this.txtHour1.TabIndex = 10;
             this.txtHour1.Tag = "Hour";
+            this.txtHour1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
             // 
             // txtDay1
             // 
@@ -235,6 +238,7 @@
             this.txtDay1.Size = new System.Drawing.Size(38, 19);
             this.txtDay1.TabIndex = 9;
             this.txtDay1.Tag = "Day";
+            this.txtDay1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
             // 
             // txtMonth1
             // 
@@ -243,6 +247,7 @@
             this.txtMonth1.Size = new System.Drawing.Size(39, 19);
             this.txtMonth1.TabIndex = 8;
             this.txtMonth1.Tag = "Month";
+            this.txtMonth1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
             // 
             // txtYear1
             // 
@@ -251,6 +256,7 @@
             this.txtYear1.Size = new System.Drawing.Size(48, 19);
             this.txtYear1.TabIndex = 7;
             this.txtYear1.Tag = "Year";
+            this.txtYear1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
             // 
             // label6
             // 
@@ -299,8 +305,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.numericUpDown1);
             this.groupBox2.Controls.Add(this.label37);
-            this.groupBox2.Controls.Add(this.textBox1);
             this.groupBox2.Controls.Add(this.label35);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.button1);
@@ -338,13 +344,6 @@
             this.label37.Size = new System.Drawing.Size(34, 12);
             this.label37.TabIndex = 27;
             this.label37.Text = "Timer";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(298, 80);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(38, 19);
-            this.textBox1.TabIndex = 26;
             // 
             // label35
             // 
@@ -461,6 +460,7 @@
             this.txtMin3.Size = new System.Drawing.Size(38, 19);
             this.txtMin3.TabIndex = 11;
             this.txtMin3.Tag = "Minute";
+            this.txtMin3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
             // 
             // txtHour3
             // 
@@ -469,6 +469,7 @@
             this.txtHour3.Size = new System.Drawing.Size(39, 19);
             this.txtHour3.TabIndex = 10;
             this.txtHour3.Tag = "Hour";
+            this.txtHour3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
             // 
             // txtDay3
             // 
@@ -477,6 +478,7 @@
             this.txtDay3.Size = new System.Drawing.Size(38, 19);
             this.txtDay3.TabIndex = 9;
             this.txtDay3.Tag = "Day";
+            this.txtDay3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
             // 
             // txtMonth3
             // 
@@ -485,6 +487,7 @@
             this.txtMonth3.Size = new System.Drawing.Size(39, 19);
             this.txtMonth3.TabIndex = 8;
             this.txtMonth3.Tag = "Month";
+            this.txtMonth3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
             // 
             // txtYear3
             // 
@@ -493,6 +496,7 @@
             this.txtYear3.Size = new System.Drawing.Size(48, 19);
             this.txtYear3.TabIndex = 7;
             this.txtYear3.Tag = "Year";
+            this.txtYear3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
             // 
             // label11
             // 
@@ -656,6 +660,7 @@
             this.txtMin2.Size = new System.Drawing.Size(38, 19);
             this.txtMin2.TabIndex = 11;
             this.txtMin2.Tag = "Minute";
+            this.txtMin2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
             // 
             // txtHour2
             // 
@@ -664,6 +669,7 @@
             this.txtHour2.Size = new System.Drawing.Size(39, 19);
             this.txtHour2.TabIndex = 10;
             this.txtHour2.Tag = "Hour";
+            this.txtHour2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
             // 
             // txtDay2
             // 
@@ -672,6 +678,7 @@
             this.txtDay2.Size = new System.Drawing.Size(38, 19);
             this.txtDay2.TabIndex = 9;
             this.txtDay2.Tag = "Day";
+            this.txtDay2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
             // 
             // txtMonth2
             // 
@@ -680,6 +687,7 @@
             this.txtMonth2.Size = new System.Drawing.Size(39, 19);
             this.txtMonth2.TabIndex = 8;
             this.txtMonth2.Tag = "Month";
+            this.txtMonth2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
             // 
             // txtYear2
             // 
@@ -689,6 +697,7 @@
             this.txtYear2.TabIndex = 7;
             this.txtYear2.Tag = "Year";
             this.txtYear2.TextChanged += new System.EventHandler(this.txtYear2_TextChanged);
+            this.txtYear2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
             // 
             // label18
             // 
@@ -823,6 +832,7 @@
             this.txtMin.Size = new System.Drawing.Size(38, 19);
             this.txtMin.TabIndex = 11;
             this.txtMin.Tag = "Minute";
+            this.txtMin.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
             // 
             // txtHour
             // 
@@ -831,6 +841,7 @@
             this.txtHour.Size = new System.Drawing.Size(39, 19);
             this.txtHour.TabIndex = 10;
             this.txtHour.Tag = "Hour";
+            this.txtHour.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
             // 
             // txtDay
             // 
@@ -839,6 +850,7 @@
             this.txtDay.Size = new System.Drawing.Size(38, 19);
             this.txtDay.TabIndex = 9;
             this.txtDay.Tag = "Day";
+            this.txtDay.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
             // 
             // txtMonth
             // 
@@ -847,6 +859,7 @@
             this.txtMonth.Size = new System.Drawing.Size(39, 19);
             this.txtMonth.TabIndex = 8;
             this.txtMonth.Tag = "Month";
+            this.txtMonth.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
             // 
             // txtYear
             // 
@@ -855,6 +868,7 @@
             this.txtYear.Size = new System.Drawing.Size(48, 19);
             this.txtYear.TabIndex = 7;
             this.txtYear.Tag = "Year";
+            this.txtYear.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tb_KeyPress);
             // 
             // label25
             // 
@@ -949,6 +963,13 @@
             this.timer5.Interval = 1000;
             this.timer5.Tick += new System.EventHandler(this.timer5_Tick);
             // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(298, 80);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(38, 19);
+            this.numericUpDown1.TabIndex = 28;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -975,6 +996,7 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1060,7 +1082,6 @@
         private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblTime;
         private System.Windows.Forms.Timer timer5;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
@@ -1069,6 +1090,7 @@
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
     }
 }
 
